@@ -21,14 +21,14 @@ gl.shaderSource(vertexShader, vsGLSL);
 gl.compileShader(vertexShader);
 if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
     throw new Error(gl.getShaderInfoLog(vertexShader))
-};
+}
 
 const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
 gl.shaderSource(fragmentShader, fsGLSL);
 gl.compileShader(fragmentShader);
 if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
     throw new Error(gl.getShaderInfoLog(fragmentShader))
-};
+}
 
 const prg = gl.createProgram();
 gl.attachShader(prg, vertexShader);
@@ -36,9 +36,24 @@ gl.attachShader(prg, fragmentShader);
 gl.linkProgram(prg);
 if (!gl.getProgramParameter(prg, gl.LINK_STATUS)) {
     throw new Error(gl.getProgramInfoLog(prg))
-};
+}
 
 gl.useProgram(prg);
 
 // draw 1 point
 gl.drawArrays(gl.POINTS, 0, 1);
+
+// gl.bufferData(
+//     gl.ARRAY_BUFFER,
+//     new Float32Array([
+//         0, -100,
+//         150,  125,
+//         -175,  100
+//     ]),
+//     gl.STATIC_DRAW
+// );
+//
+// var primitiveType = gl.TRIANGLES;
+// var offset = 0;
+// var count = 9;
+// gl.drawArrays(primitiveType, offset, count);
