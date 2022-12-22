@@ -53,8 +53,8 @@ function main() {
 
     const positions = [
         0, 0,
-        0, 0.5,
-        0.7, 0,
+        0, 1,
+        1, 0,
     ];
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
 
@@ -94,5 +94,4 @@ function main() {
     const count = 3;
     gl.drawArrays(primitiveType, offset, count);
 }
-
 main();
